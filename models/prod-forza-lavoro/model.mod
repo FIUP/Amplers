@@ -4,13 +4,13 @@
 
 # declare vars
 
-var x_1 >= 200;  # how many models type 1 to produce
-var x_2 >= 200;  # how many models type 2 to produce
-var x_3 >= 150;  # how many models type 3 to produce
+var x_1 >= 200;  # how many models of each type to produce
+var x_2 >= 200;
+var x_3 >= 150;
 
-param price_1 = 30;  # $ I get when selling model type 1
-param price_2 = 20;  # $ I get when selling model type 2
-param price_3 = 50;  # $ I get when selling model type 3
+param price_1 = 30;  # $ I get when selling models
+param price_2 = 20;
+param price_3 = 50;
 
 param available_A = 4000;  # resources available
 param available_B = 6000;
@@ -23,6 +23,6 @@ maximize   total_gain: price_1 * x_1 + price_2 * x_2 + price_3 * x_3;
 
 subject to resources_A: 2 * x_1 + 3 * x_2 + 5 * x_3 <= available_A;
 subject to resources_B: 4 * x_1 + 2 * x_2 + 7 * x_3 <= available_B;
-subject to   workforce: x_1 + 1 / 2 * x_2 + 1 / 3 * x_2 <= max_workforce;
+subject to   workforce: x_1 + 1 / 2 * x_2 + 1 / 3 * x_3 <= max_workforce;
 
 option solver "/home/stefano/bin/ampl-solvers/cbc-linux64/cbc";  # select which solver to use
