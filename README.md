@@ -35,7 +35,7 @@ resa = 44000
 | [produzione capacità eccedente](models/prod-cap-eccedente) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300, total_gain = 14900` |
 
 ## Help, something is wrong
-- Remember to add a semicolon at the end of *moslty* all commands .. ![WTF semicolon](extra/wtf.png)
+- Remember to add a semicolon at the end of *mostly* all commands .. ![WTF semicolon](extra/wtf.png)
 
 
 ## Questions and issues
