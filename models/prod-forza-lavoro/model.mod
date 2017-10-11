@@ -4,20 +4,25 @@
 
 # declare vars
 
-var x_A >= 200;  # how many models type A to produce
-var x_B >= 200;  # how many models type B to produce
-var x_A >= 150;  # how many models type A to produce
+var x_1 >= 200;  # how many models type 1 to produce
+var x_2 >= 200;  # how many models type 2 to produce
+var x_3 >= 150;  # how many models type 3 to produce
 
-param price_A = 3000;  # $ I get when selling model type A
-param resa_patata = 5000;  # $ I get when selling model type A
+param price_1 = 30;  # $ I get when selling model type 1
+param price_2 = 20;  # $ I get when selling model type 2
+param price_3 = 50;  # $ I get when selling model type 3
+
+param available_A = 4000;  # resources available
+param available_B = 6000;
+
+param max_workforce = 700;  # workforce available to produce models
 
 # model
 
-maximize   resa: 3000 * x_lattuga + 5000 * x_patata;
+maximize   total_gain: price_1 * x_1 + price_2 * x_2 + price_3 * x_3;
 
-subject to ettari: x_lattuga + x_patata <= 12;
-subject to semi: 7 * x_lattuga <= 70;
-s.t.       tuberi: 3 * x_patata <= 18;
-s.t.       concime: 10 * x_lattuga + 20 * x_patata <= 160;
+subject to resources_A: 2 * x_1 + 3 * x_2 + 5 * x_3 <= available_A;
+subject to resources_B: 4 * x_1 + 2 * x_2 + 7 * x_3 <= available_B;
+subject to   workforce: x_1 + 1 / 2 * x_2 + 1 / 3 * x_2 <= max_workforce;
 
 option solver "/home/stefano/bin/ampl-solvers/cbc-linux64/cbc";  # select which solver to use
