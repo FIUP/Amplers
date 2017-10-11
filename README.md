@@ -31,8 +31,8 @@ resa = 44000
 | ------------- | ------------- | ------------- |
 | [agricoltore agricolo](models/contadino) | `mix-ottimo di produzione` | `x_patata = 4, x_lattuga = 8, resa = 44000` |
 | [telecomandi](models/telecomandi) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2, total_gain = 34` |
-| [produzione forza lavoro](models/prod-forza-lavoro) | `mix-ottimo di produzione` | `x_1 = 533, x_2 = 200, x_3 = 467, total_gain = 43333.3` |
-| [telecomandi](models/telecomandi) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2, total_gain = 34` |
+| [produzione forza lavoro](models/prod-forza-lavoro) | `mix-ottimo di produzione` | `x_1 = 430, x_2 = 200, x_3 = 508, total_gain = 42300` |
+| [produzione capacità eccedente](models/prod-cap-eccedente) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300, total_gain = 14900` |
 
 ## Help, something is wrong
 - Remember to add a semicolon at the end of *moslty* all commands .. ![WTF semicolon](extra/wtf.png)
