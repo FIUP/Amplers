@@ -16,8 +16,8 @@
 var x_lattuga >= 0;  # hm² lattuga
 var x_patata >= 0;  # hm² patate
 
-param resa_lattuga = 3000;  # $ I get when solding
-param resa_patata = 5000;  # $ I get when solding
+param resa_lattuga = 3000;  # $ I get when selling
+param resa_patata = 5000;  # $ I get when selling
 
 # model
 

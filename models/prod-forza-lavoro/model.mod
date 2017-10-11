@@ -4,11 +4,12 @@
 
 # declare vars
 
-var x_lattuga >= 0;  # hm² lattuga
-var x_patata >= 0;  # hm² patate
+var x_A >= 200;  # how many models type A to produce
+var x_B >= 200;  # how many models type B to produce
+var x_A >= 150;  # how many models type A to produce
 
-param resa_lattuga = 3000;  # $ I get when solding
-param resa_patata = 5000;  # $ I get when solding
+param price_A = 3000;  # $ I get when selling model type A
+param resa_patata = 5000;  # $ I get when selling model type A
 
 # model
 
