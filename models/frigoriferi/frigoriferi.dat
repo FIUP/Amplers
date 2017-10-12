@@ -1,5 +1,5 @@
 set STABILIMENTI := A, B, C;  # factories
-set MAGAZZINI    := a, b, c, d;  # warehouses
+set MAGAZZINI := a, b, c, d;  # warehouses
 
 param costo: 	a 	b 	c 	d 	:=  # initialize
 	A 		6	8	3	4
