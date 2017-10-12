@@ -4,20 +4,23 @@
 
 # declare params
 set BATCH;
-param duration;
-param expected_finish;  # time each program should complete
+param duration{BATCH};
+param expected_finish{BATCH};  # time each program should complete
 param fee;  # $ we pay if we don't deliver the results just in time
 
 # declare vars
 var x_start{BATCH} >= 0;  # starting time of each program
+var time_wrong{BATCH};  # qty of time wrong with respect to expected arrival
 
 # model
 
-minimize total_fee: sum{b in BATCH} fee * abs(x[b] + duration[b] - expected_finish[b]);  # fee * delta time
+minimize total_fee: sum{b in BATCH} fee * time_wrong[b];  # fee * delta time
 
-subject to x_start["2"] >= x_start["1"] + duration["1"];  # 2 after 1
-subject to x_start["3"] >= x_start["2"] + duration["2"];  # 3 after 2
-subject to x_start["4"] >= x_start["3"] + duration["3"];  # 4 after 3
-subject to x_start["5"] >= x_start["4"] + duration["4"];  # 5 after 4
+subject to wrong_times_abs1{b in BATCH}: time_wrong[b] >= x_start[b] + duration[b] - expected_finish[b];  # wrong delta time is at least the exact wrong time
+subject to wrong_times_abs0{b in BATCH}: time_wrong[b] >= expected_finish[b] - (x_start[b] + duration[b]);
+subject to ordering_21: x_start["2"] >= x_start["1"] + duration["1"];
+subject to ordering_32: x_start["3"] >= x_start["2"] + duration["2"];
+subject to ordering_43: x_start["4"] >= x_start["3"] + duration["3"];
+subject to ordering_54: x_start["5"] >= x_start["4"] + duration["4"];
 
 option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use
