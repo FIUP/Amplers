@@ -78,7 +78,7 @@ moving_cost = 420
 | [Frigoriferi](models/frigoriferi/) | `trasporti (bilanciato)` | `x_A3 = 10, x_A4 = 40, x_B2 = 50, x_B3 = 20, x_C1 = 10, x_C2 = 10` | `420` |
 | [Piani di investimento](models/piano-investimento) | `multi-periodale` | `x_A1 = 10000, x_A3 = 14000, x_D5 = 19600` | `25480` |
 | [Produzione su più linee](models/linee-produzione) | `min-max` | `x_13 = 20, x_23 = 30, x_32 = 16, x_41 = 20` | `86` |
-| [Scheduling just-in-time](models/scheduling-jit) | `min-max` | `start_1 = 26, start_2 = 31, start_3 = 38, start_4 = 45, start_5 = 52` | `4500` |
+| [Scheduling just-in-time](models/scheduling-jit) | `min-abs` | `start_1 = 26, start_2 = 31, start_3 = 38, start_4 = 45, start_5 = 52` | `4500` |
 
 
 ## Help, something is wrong
