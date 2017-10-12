@@ -7,8 +7,8 @@
 
 # declare vars
 
-var x_A >= 0;  # qty of each remote-control to produce
-var x_B >= 0;
+var x_A integer >= 0;  # qty of each remote-control to produce
+var x_B integer >= 0;
 
 param gain_A = 3;  # $ I get when selling
 param gain_B = 8;
