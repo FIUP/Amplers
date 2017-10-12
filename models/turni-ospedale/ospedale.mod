@@ -4,17 +4,16 @@
 
 # declare params
 set DAYS;
-param people{DAYS} >= 0;
+param min_people{DAYS} >= 0;
 param FIRST_DAY{DAYS, DAYS} >= 0;
 
 # declare vars
-var x{DAYS} >= 0;  # qty of refrigerators to move
+var x{DAYS} integer >= 0;  # number of people working that day
 
 # model
 
-minimize moving_cost: sum{s in STABILIMENTI, m in MAGAZZINI} costo[s, m] * x[s, m];
+minimize cost: sum{d in DAYS} x[d];  # total people working in week
 
-subject to production{s in STABILIMENTI}: sum{m in MAGAZZINI} x[s, m] <= produzione[s];
-subject to requested{m in MAGAZZINI}: sum{s in STABILIMENTI} x[s, m] >= richiesta[m];
+subject to shifts{d in DAYS}: sum{f in DAYS} x[d] * FIRST_DAY[d, f] >= min_people[d];
 
-option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use
+option solver cplex;  # select which solver to use

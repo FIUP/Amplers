@@ -24,4 +24,4 @@ minimize moving_cost: sum{s in STABILIMENTI, m in MAGAZZINI} costo[s, m] * x[s, 
 subject to production{s in STABILIMENTI}: sum{m in MAGAZZINI} x[s, m] <= produzione[s];
 subject to requested{m in MAGAZZINI}: sum{s in STABILIMENTI} x[s, m] >= richiesta[m];
 
-option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use
+option solver cplex;  # select which solver to use
