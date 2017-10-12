@@ -24,4 +24,4 @@ s.t.          keyboards: 2 * x_A + 3 * x_B <= 21;
 s.t.                gps: 1 * x_A + 0 * x_B <= 9;
 s.t.                led: 1 * x_A + 0 * x_B <= 10;
 
-option solver "/home/stefano/bin/ampl-solvers/cbc-linux64/cbc";  # select which solver to use
+option solver cplex;  # select which solver to use

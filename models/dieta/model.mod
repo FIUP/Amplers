@@ -14,4 +14,4 @@ subject to proteine: 5 * x_verdura + 15 * x_carne + 4 * x_frutta >= 20;
 subject to ferro: 6 * x_verdura + 10 * x_carne + 5 * x_frutta >= 30;
 subject to calcio: 5 * x_verdura + 3 * x_carne + 12 * x_frutta >= 10;
 
-option solver "/home/stefano/bin/ampl-solvers/cbc-linux64/cbc";  # select which solver to use
+option solver cplex;  # select which solver to use

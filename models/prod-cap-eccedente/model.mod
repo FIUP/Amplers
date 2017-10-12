@@ -60,4 +60,4 @@ subject to average_production_12: (factory_1_bassa + factory_1_media + factory_1
 subject to average_production_23: (factory_2_bassa + factory_2_media + factory_2_alta) / max_prod_factory_2 = (factory_3_bassa + factory_3_media + factory_3_alta) / max_prod_factory_3;
 
 
-option solver "/home/stefano/bin/ampl-solvers/cbc-linux64/cbc";  # select which solver to use
+option solver cplex;  # select which solver to use

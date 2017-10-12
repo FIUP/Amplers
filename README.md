@@ -29,11 +29,12 @@ resa = 44000
 ## Available models
 | name | category | solution |
 | ------------- | ------------- | ------------- |
-| [agricoltore agricolo](models/contadino) | `mix-ottimo di produzione` | `x_patata = 4, x_lattuga = 8, resa = 44000` |
-| [telecomandi](models/telecomandi) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2, total_gain = 34` |
-| [produzione forza lavoro](models/prod-forza-lavoro) | `mix-ottimo di produzione` | `x_1 = 430, x_2 = 200, x_3 = 508, total_gain = 42300` |
-| [produzione capacità eccedente](models/prod-cap-eccedente) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300, total_gain = 14900` |
-| [dieta](models/dieta) | `copertura di costo minimo` | `x_verdura = 5, x_carne = 0, x_frutta = 0, cost = 20` |
+| [agricoltore agricolo](models/contadino/model.mod) | `mix-ottimo di produzione` | `x_patata = 4, x_lattuga = 8, resa = 44000` |
+| [telecomandi](models/telecomandi/model.mod) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2, total_gain = 34` |
+| [produzione forza lavoro](models/prod-forza-lavoro/model.mod) | `mix-ottimo di produzione` | `x_1 = 430, x_2 = 200, x_3 = 508, total_gain = 42300` |
+| [produzione capacità eccedente](models/prod-cap-eccedente/model.mod) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300, total_gain = 14900` |
+| [dieta](models/dieta/model.mod) | `copertura di costo minimo` | `x_verdura = 5, x_carne = 0, x_frutta = 0, cost = 20` |
+| [indagine di mercato](models/indagine-mercato/model.mod) | `copertura di costo minimo` | `x_mattino = 1, x_sera = 666, cost = 1066.7` |
 
 
 ## Help, something is wrong

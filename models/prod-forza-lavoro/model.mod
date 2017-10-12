@@ -25,4 +25,4 @@ subject to resources_A: 2 * x_1 + 3 * x_2 + 5 * x_3 <= available_A;
 subject to resources_B: 4 * x_1 + 2 * x_2 + 7 * x_3 <= available_B;
 subject to   workforce: x_1 + 1 / 2 * x_2 + 1 / 3 * x_3 <= max_workforce;
 
-option solver "/home/stefano/bin/ampl-solvers/cbc-linux64/cbc";  # select which solver to use
+option solver cplex;  # select which solver to use
