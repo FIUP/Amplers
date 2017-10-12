@@ -10,12 +10,12 @@
 set STABILIMENTI;  # factories
 set MAGAZZINI;  # warehouses
 
-param produzione{STABILIMENTI}, >= 0;  # define
-param richiesta{MAGAZZINI}, >= 0;
-param costo{STABILIMENTI, MAGAZZINI}, >= 0;
+param produzione{STABILIMENTI} >= 0;  # define
+param richiesta{MAGAZZINI} >= 0;
+param costo{STABILIMENTI, MAGAZZINI} >= 0;
 
 # declare vars
-var x{STABILIMENTI, MAGAZZINI}, >= 0;  # qty of refrigerators to move
+var x{STABILIMENTI, MAGAZZINI} >= 0;  # qty of refrigerators to move
 
 # model
 
