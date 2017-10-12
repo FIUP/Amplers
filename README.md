@@ -75,7 +75,8 @@ moving_cost = 420
 | [Indagine di mercato](models/indagine-mercato/model.mod) | `copertura di costo minimo` | `x_mattino = 1, x_sera = 666` | `1066.7` |
 | [Turni in ospedale](models/turni-ospedale/) | `copertura di costo minimo` | `fri = 3, mon = 4, sat = 4, sun = 3, thu = 4, tue = 3, wed = 3` | `24` |
 | [Localizzazione di servizi](models/localizzazione-servizi/) | `copertura di costo minimo` | `2, 4` | `2` |
-| [Frigoriferi](models/frigoriferi/) | `trasporti (bilanciato)` | `x_A1 = 0, x_A2 = 0, x_A3 = 10, x_A4 = 40, x_B1 = 0, x_B2 = 50, x_B3 = 20, x_B4 = 0, x_C1 = 10, x_C2 = 10, x_C3 = 0, x_C4 = 0` | `420` |
+| [Frigoriferi](models/frigoriferi/) | `trasporti (bilanciato)` | `x_A3 = 10, x_A4 = 40, x_B2 = 50, x_B3 = 20, x_C1 = 10, x_C2 = 10` | `420` |
+| [Piani di investimento](models/piano-investimento) | `multi-periodale` | `x_A1 = 10000, x_A3 = 14000, x_D5 = 19600` | `25480` |
 
 
 ## Help, something is wrong

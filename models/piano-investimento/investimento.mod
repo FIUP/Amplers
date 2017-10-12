@@ -32,4 +32,4 @@ subject to fifth_year: x["D", "5"] <= assets
 	+ (gain["A"] * x["A", "1"] + gain["A"] * x["A", "2"] + gain["B"] * x["B", "1"] + gain["B"] * x["B", "2"] + gain["A"] * x["A", "3"])
 	- (x["C", "2"] + x["B", "3"] + x["A", "4"]);
 
-option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use
+option solver cplex;  # select which solver to use
