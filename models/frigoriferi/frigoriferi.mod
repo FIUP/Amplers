@@ -22,6 +22,6 @@ var x{STABILIMENTI, MAGAZZINI}, >= 0;  # qty of refrigerators to move
 minimize moving_cost: sum{s in STABILIMENTI, m in MAGAZZINI} costo[s, m] * x[s, m];
 
 subject to production{s in STABILIMENTI}: sum{m in MAGAZZINI} x[s, m] <= produzione[s];
-subject to requested{m in MAGAZZINI}: sum{s in STABILIMENTI} x[s, m] <= richiesta[m];
+subject to requested{m in MAGAZZINI}: sum{s in STABILIMENTI} x[s, m] >= richiesta[m];
 
 option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use

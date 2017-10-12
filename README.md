@@ -35,6 +35,33 @@ x_lattuga = 8
 x_patata = 4
 resa = 44000
 ```
+In case the model comes with a `data file` (like [this one](models/frigoriferi/)), then you should
+```
+$ cd `folder where model is .. e.g models/frigoriferi/`
+$ ampl
+ampl: model frigoriferi.mod
+ampl: data frigoriferi.dat
+ampl: solve;
+CPLEX 12.7.1.0: optimal solution; objective 420
+7 dual simplex iterations (0 in phase I)
+ampl: display x, moving_cost;
+x :=
+A '1'    0
+A '2'    0
+A '3'   10
+A '4'   40
+B '1'    0
+B '2'   50
+B '3'   20
+B '4'    0
+C '1'   10
+C '2'   10
+C '3'    0
+C '4'    0
+;
+
+moving_cost = 420
+```
 
 
 ## Available models
@@ -46,7 +73,7 @@ resa = 44000
 | [produzione capacità eccedente](models/prod-cap-eccedente/model.mod) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300, total_gain = 14900` |
 | [dieta](models/dieta/model.mod) | `copertura di costo minimo` | `x_verdura = 5, x_carne = 0, x_frutta = 0, cost = 20` |
 | [indagine di mercato](models/indagine-mercato/model.mod) | `copertura di costo minimo` | `x_mattino = 1, x_sera = 666, cost = 1066.7` |
-| [frigoriferi](models/frigoriferi/model.mod) | `trasporti (bilanciato)` | `` |
+| [frigoriferi](models/frigoriferi/model.mod) | `trasporti (bilanciato)` | `x_A1 = 0, x_A2 = 0, x_A3 = 10, x_A4 = 40, x_B1 = 0, x_B2 = 50, x_B3 = 20, x_B4 = 0, x_C1 = 10, x_C2 = 10, x_C3 = 0, x_C4 = 0, moving_cost = 420` |
 
 
 ## Help, something is wrong
