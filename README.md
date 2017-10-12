@@ -65,7 +65,7 @@ moving_cost = 420
 
 
 ## Available models
-| name | category | solution | min/max value |
+| name | category | solution | cost/optimum |
 | ------------- | ------------- | ------------- | ------------- |
 | [Contadino](models/contadino/model.mod) | `mix-ottimo di produzione` | `x_patata = 4, x_lattuga = 8` | `44000` |
 | [Telecomandi](models/telecomandi/model.mod) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2` | `34` |

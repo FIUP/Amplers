@@ -1,0 +1,10 @@
+set YEARS := "1", "2", "3", "4", "5";
+set PLANS := "A", "B", "C", "D";
+
+param: gain :=
+	"A"	0.4
+	"B"	0.7
+	"C"	1
+	"D"	0.3;
+
+param assets := 10000;
