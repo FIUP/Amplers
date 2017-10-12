@@ -1,17 +1,15 @@
-# Un dietologo deve preparare una dieta che garantisca un apporto giornaliero di proteine, ferro e calcio di almeno 20 mg, 30 mg e 10 mg, rispettivamente. Il dietologo è orientato su cibi a base di verdura (5 mg/kg di proteine, 6 mg/kg di ferro e 5 mg/kg di calcio, al costo di 4 e/kg), carne (15 mg/kg di proteine, 10 mg/kg di ferro e 3 mg/kg di calcio, al costo di 10 e/kg) e frutta (4 mg/kg di proteine, 5 mg/kg di ferro e 12 mg/kg di calcio, al costo di 7 e/kg). Determinare la dieta di costo minimo.
+# Una ditta di produzione di elettrodomestici produce dei frigoriferi in tre stabilimenti e li smista in quattro magazzini intermedi di vendita. La produzione settimanale nei tre stabilimenti A, B e C è rispettivamente di 50, 70 e 20 unità. La quantità richiesta dai 4 magazzini è rispettivamente di 10, 60, 30 e 40 unità. I costi per il trasporto di un frigorifero tra gli stabilimenti e i magazzini 1, 2, 3 e 4 sono i seguenti:
+# - dallo stabilimento A: 6, 8, 3, 4 euro;
+# - dallo stabilimento B: 2, 3, 1, 3 euro;
+# - dallo stabilimento C: 2, 4, 6, 5 euro.
+# La ditta vuole determinare il piano di trasporti di costo minimo.
 
 # declare vars
-
-var x_verdura >= 0;  # qty to model
-var x_carne >= 0;
-var x_frutta >= 0;
 
 # model
 
 minimize   cost: 4 * x_verdura + 10 * x_carne + 7 * x_frutta;
 
 subject to proteine: 5 * x_verdura + 15 * x_carne + 4 * x_frutta >= 20;
-subject to ferro: 6 * x_verdura + 10 * x_carne + 5 * x_frutta >= 30;
-subject to calcio: 5 * x_verdura + 3 * x_carne + 12 * x_frutta >= 10;
 
-option solver cplex;  # select which solver to use
+option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use

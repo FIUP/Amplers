@@ -4,9 +4,9 @@
 
 # declare vars
 
-var x_1 >= 200;  # how many models of each type to produce
-var x_2 >= 200;
-var x_3 >= 150;
+var x_1 integer >= 200;  # how many models of each type to produce
+var x_2 integer >= 200;
+var x_3 integer >= 150;
 
 param price_1 = 30;  # $ I get when selling models
 param price_2 = 20;
