@@ -8,6 +8,17 @@
 
 ## Usage
 Be sure to [download](http://ampl.com/products/solvers/open-source/) one of the AMPL solvers and to add the correct path in the [right place](/models/contadino/model.mod#L31).
+Once you open a [model](models/) you may run into errors like
+```shell
+ampl: model model.mod
+ampl: solve;
+Cannot find "cplex"
+```
+Panic you may not.
+`ampl` cannot find the solver specified in your machine: just specify the full path to the solver you wish to use. For example
+```python
+option solver "/bin/ampl-solvers/cbc-linux64/cbc";
+```
 
 
 ## Example
@@ -35,10 +46,11 @@ resa = 44000
 | [produzione capacità eccedente](models/prod-cap-eccedente/model.mod) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300, total_gain = 14900` |
 | [dieta](models/dieta/model.mod) | `copertura di costo minimo` | `x_verdura = 5, x_carne = 0, x_frutta = 0, cost = 20` |
 | [indagine di mercato](models/indagine-mercato/model.mod) | `copertura di costo minimo` | `x_mattino = 1, x_sera = 666, cost = 1066.7` |
+| [frigoriferi](models/frigoriferi/model.mod) | `trasporti (bilanciato)` | `` |
 
 
 ## Help, something is wrong
-- Remember to add a semicolon at the end of *mostly* all commands .. ![WTF semicolon](extra/wtf.png)
+Remember to add a semicolon at the end of *mostly* all commands .. ![WTF semicolon](extra/wtf.png)
 
 
 ## Questions and issues
