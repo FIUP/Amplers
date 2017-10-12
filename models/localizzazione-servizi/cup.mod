@@ -17,6 +17,6 @@ var x{LOCATIONS} binary >= 0;  # 1 open, 0 close cup in location
 
 minimize cost: sum{l in LOCATIONS} x[l];  # total opened locations
 
-subject to max_time{n in NEIGHBORHOODS}: sum{l in LOCATIONS} x[n] * GOOD_LOCATIONS[n, l] >= 1;  # at least one good location per neighborhood
+subject to max_time{n in NEIGHBORHOODS}: sum{l in LOCATIONS} x[l] * GOOD_LOCATIONS[n, l] >= 1;  # at least one good location per neighborhood
 
 option solver cplex;  # select which solver to use
