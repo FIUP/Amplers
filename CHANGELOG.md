@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## 0.1.1 - 2017-10-12
 
 ### Added
-- models: `dieta`, `indagine mercato`, `frigoriferi`, `turni ospedale`, `investimenti`
+- models: `dieta`, `indagine mercato`, `frigoriferi`, `turni ospedale`, `investimenti`, `produzione su linee`, `jit scheduling`
 
 ## 0.1 - 2017-10-11
 
