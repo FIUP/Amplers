@@ -7,4 +7,4 @@ param FIRST_DAY: "mon" "tue" "wed" "thu" "fri" "sat" "sun" :=
 	"thu" 			1	1	1	1	0	0	1
 	"fri" 			1	1	1	1	1	0	0
 	"sat" 			0	1	1	1	1	1	0
-	"sun" 			0	0	1	1	1	1	1
+	"sun" 			0	0	1	1	1	1	1;
