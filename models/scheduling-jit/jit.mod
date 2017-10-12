@@ -23,4 +23,4 @@ subject to ordering_32: x_start["3"] >= x_start["2"] + duration["2"];
 subject to ordering_43: x_start["4"] >= x_start["3"] + duration["3"];
 subject to ordering_54: x_start["5"] >= x_start["4"] + duration["4"];
 
-option solver "/home/stefano/bin/amplide.linux64/cplex";  # select which solver to use
+option solver cplex;  # select which solver to use
