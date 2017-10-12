@@ -18,27 +18,12 @@ param speed{LINES, COMPONENTS};  # number of components done per hour
 param max_production{LINES};
 
 # declare vars
-var x{PLANS, YEARS} >= 0;
+var x{LINES, COMPONENTS} >= 0;  # hours to spend producing each component
 
 # model
 
-maximize total_gain: assets
-	+ gain["A"] * (x["A", "1"] + x["A", "2"] + x["A", "3"] + x["A", "4"])
-	+ gain["B"] * (x["B", "1"] + x["B", "2"] + x["B", "3"])
-	+ gain["C"] * (x["C", "2"])
-	+ gain["D"] * (x["D", "5"]);  # total earned
+maximize total_production: sum{l in LINES, c in COMPONENTS} x[l, c];  # total components produced
 
-subject to first_year: x["A", "1"] + x["B", "1"] <= assets;
-subject to second_year: (x["A", "2"] + x["B", "2"] + x["C", "2"]) <= assets
-	- (x["A", "1"] + x["B", "1"]);
-subject to third_year: (x["A", "3"] + x["B", "3"]) <= assets
-	+ (gain["A"] * x["A", "1"])
-	- (x["B", "1"] + x["A", "2"] + x["B", "2"] + x["C", "2"]);
-subject to fourth_year: x["A", "4"] <= assets
-	+ (gain["A"] * x["A", "1"] + gain["A"] * x["A", "2"] + gain["B"] * x["B", "1"])
-	- (x["B", "2"] + x["C", "2"] + x["A", "3"] + x["B", "3"] + x["C", "3"]);
-subject to fifth_year: x["D", "5"] <= assets
-	+ (gain["A"] * x["A", "1"] + gain["A"] * x["A", "2"] + gain["B"] * x["B", "1"] + gain["B"] * x["B", "2"] + gain["A"] * x["A", "3"])
-	- (x["C", "2"] + x["B", "3"] + x["A", "4"]);
+subject to max_hours{l in LINES}: sum{c in COMPONENTS} x[l, c] * speed[l, c] <= max_production[l];
 
 option solver cplex;  # select which solver to use

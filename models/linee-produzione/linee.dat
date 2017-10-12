@@ -1,5 +1,5 @@
 set COMPONENTS := "1", "2", "3";
-set LINES; := "1", "2", "3", "4";
+set LINES := "1", "2", "3", "4";
 
 param speed: "1" "2" "3" :=
 	"1"	10	15	 5
