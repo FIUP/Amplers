@@ -1,0 +1,9 @@
+reset;  # remove cached vars
+
+model telecomandi.mod;  # set model and data
+data telecomandi.dat;
+
+option solver "/opt/amplide.linux64/cplex";  # select solver
+solve;  # solve
+
+display x, total_gain;  # display solution

@@ -1,6 +1,6 @@
 # Amplers
 
-*A collection of linear programming models discussed in RO course, written in AMPL*
+*A collection of linear programming models discussed in OR course, written in AMPL*
 
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/licenses/Apache-2.0) [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/fiup/amplers/issues) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
@@ -22,7 +22,9 @@ option solver "/bin/ampl-solvers/cbc-linux64/cbc";
 
 
 ## Example
-Once you [downloaded](#usage) all necessary software, simply
+Once you [downloaded](#usage) all necessary software
+
+- simply
 ```shell
 $ cd `folder where model is .. e.g models/contadino/`
 $ ampl
@@ -35,8 +37,9 @@ x_lattuga = 8
 x_patata = 4
 resa = 44000
 ```
-In case the model comes with a `data file` (like [this one](models/frigoriferi/)), then you should
-```
+
+- in case the model comes with a `data file` (like [this one](models/frigoriferi/)), then you should
+```shell
 $ cd `folder where model is .. e.g models/frigoriferi/`
 $ ampl
 ampl: model frigoriferi.mod
@@ -63,12 +66,29 @@ C '4'    0
 moving_cost = 420
 ```
 
+- finally, if there is also a `run file` (like [this one](models/telecomandi/telecomandi.run)), just
+```shell
+$ cd `folder where model is .. e.g models/contadino/`
+$ ampl
+ampl: include telecomandi.run;
+CPLEX 12.6.3.0: optimal integer solution; objective 34
+3 MIP simplex iterations
+0 branch-and-bound nodes
+No basis.
+x [*] :=
+A  6
+B  2
+;
+
+total_gain = 34
+```
+
 
 ## Available models
 | name | category | solution | cost/optimum |
 | ------------- | ------------- | ------------- | ------------- |
 | [Contadino](models/contadino/model.mod) | `mix-ottimo di produzione` | `x_patata = 4, x_lattuga = 8` | `44000` |
-| [Telecomandi](models/telecomandi/model.mod) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2` | `34` |
+| [Telecomandi](models/telecomandi) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2` | `34` |
 | [Produzione forza lavoro](models/prod-forza-lavoro/model.mod) | `mix-ottimo di produzione` | `x_1 = 430, x_2 = 200, x_3 = 508` | `42300` |
 | [Produzione capacità eccedente](models/prod-cap-eccedente/model.mod) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300` | `14900` |
 | [Dieta](models/dieta/model.mod) | `copertura di costo minimo` | `x_verdura = 5, x_carne = 0, x_frutta = 0` | `20` |
