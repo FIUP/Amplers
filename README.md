@@ -99,6 +99,7 @@ total_gain = 34
 | [Piani di investimento](models/piano-investimento) | `multi-periodale` | `x_A1 = 10000, x_A3 = 14000, x_D5 = 19600` | `25480` |
 | [Produzione su più linee](models/linee-produzione) | `min-max` | `x_13 = 20, x_23 = 30, x_32 = 16, x_41 = 20` | `86` |
 | [Scheduling just-in-time](models/scheduling-jit) | `min-abs` | `start_1 = 26, start_2 = 31, start_3 = 38, start_4 = 45, start_5 = 52` | `4500` |
+| [Localizzazione con costi fissi](models/gdo/gdo.mod) | `logico` | `dnf` | `dnf` |
 
 
 ## Help, something is wrong
