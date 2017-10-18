@@ -6,4 +6,4 @@ data portfolio.dat;
 option solver cplex;  # select solver
 solve;  # solve
 
-display x, total_gain;  # display solution
+display x, total_profit;  # display solution

@@ -5,13 +5,11 @@
 */
 
 set FUNDS;
-param type{FUNDS};
+param is_state_public{FUNDS};
 param moodys_rating{FUNDS};
 param time{FUNDS};
 param profit{FUNDS};
 param tax{FUNDS};
-param is_state_public_investment{f in FUNDS} =
-	(if type[f] == "pubblico" or type[f] == "stato" then 1 else 0);  # 1 iff investment is either "pubblico" or "stato"
 
 param minPublicFunds;
 param minAForE;
@@ -26,23 +24,16 @@ var y{FUNDS} binary;  # 1 iff invest in fund
 maximize total_profit: sum{f in FUNDS} x[f] * profit[f] * (1 - tax[f]);
 
 s.t. available_money: sum{f in FUNDS} x[f] <= budget;
-s.t. average_risk: sum{f in FUNDS} x[f] * moodys_rating[f]
-		<= maxRisk * sum{f in FUNDS} x[f];
-s.t. average_time: sum{f in FUNDS} x[f] * time[f]
-		<= maxRisk * sum{f in FUNDS} x[f];
-s.t. public_investment: sum{f in FUNDS} x[f] * is_state_public_investment[f]
-		>= budget * minPublicFunds;
+s.t. average_risk: sum{f in FUNDS} x[f] * moodys_rating[f] <= maxRisk * sum{f in FUNDS} x[f];
+s.t. average_time: sum{f in FUNDS} x[f] * time[f] <= maxRisk * sum{f in FUNDS} x[f];
+s.t. public_investment: sum{f in FUNDS} x[f] * is_state_public[f] >= budget * minPublicFunds;
 
-/**
- * activate logic constraint C - D
- */
-s.t. x["C"] <= bigM * y["C"];
-s.t. x["D"] <= bigM * y["D"];
-s.t. y["C"] + y["D"] <= 1;
+# activate logic constraint C - D
+s.t. logicCD_0: x["C"] <= bigM * y["C"];
+s.t. logicCD_1: x["D"] <= bigM * y["D"];
+s.t. logicCD_2: y["C"] + y["D"] <= 1;
 
-/**
- * activate logic constraint A - E
- */
-s.t. x["A"] >= minAForE * y["A"];
-s.t. x["E"] <= bigM * y["E"];
-s.t. y["E"] <= y["A"] ;
+# activate logic constraint A - E
+s.t. logicAE_0: x["A"] >= minAForE * y["A"];
+s.t. logicAE_1: x["E"] <= bigM * y["E"];
+s.t. logicAE_2: y["E"] <= y["A"];
