@@ -3,7 +3,7 @@ reset;  # remove cached vars
 model portfolio.mod;  # set model and data
 data portfolio.dat;
 
-option solver "/home/stefano/bin/amplide.linux64/cplex";  # select solver
+option solver cplex;  # select solver
 solve;  # solve
 
 display x, total_profit;  # display solution
