@@ -1,6 +1,6 @@
 set MONTHS := 1, 2, 3, 4, 5;
 
-param: minProductivity{MONTHS} :=
+param: minProductivity :=
 	1		2000
 	2		4000
 	3		7000
@@ -10,7 +10,7 @@ param: minProductivity{MONTHS} :=
 param totalMonths := 5;
 param initialExperts := 20;
 param expertProductivity := 150;
-param expertHelperProductivity := 70;
+param expertHelperProductivity := 80;
 param expertWage := 1000;
 param newbieProductivity := 0;
 param newbieWage := 500;
