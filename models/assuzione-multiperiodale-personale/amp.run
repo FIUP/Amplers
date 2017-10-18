@@ -1,0 +1,9 @@
+reset;  # remove cached vars
+
+model amp.mod;  # set model and data
+data amp.dat;
+
+option solver cplex;  # select solver
+solve;  # solve
+
+display x, total_profit;  # display solution
