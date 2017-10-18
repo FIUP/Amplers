@@ -1,12 +1,13 @@
-set MONTHS := "1", "2", "3", "4", "5";
+set MONTHS := 1, 2, 3, 4, 5;
 
 param: minProductivity{MONTHS} :=
-	"1"		2000
-	"2"		4000
-	"3"		7000
-	"4"		3000
-	"5"		3500:
+	1		2000
+	2		4000
+	3		7000
+	4		3000
+	5		3500;
 
+param totalMonths := 5;
 param initialExperts := 20;
 param expertProductivity := 150;
 param expertHelperProductivity := 70;
@@ -15,3 +16,4 @@ param newbieProductivity := 0;
 param newbieWage := 500;
 param minToGetReduction := 10;
 param stateContribution := 10000;
+param bigM := 100000;

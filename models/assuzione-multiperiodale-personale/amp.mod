@@ -15,6 +15,7 @@ set MONTHS;
 
 param minProductivity{MONTHS};
 
+param totalMonths;
 param initialExperts;
 param expertProductivity;
 param expertHelperProductivity;
@@ -23,18 +24,36 @@ param newbieProductivity;
 param newbieWage;
 param minToGetReduction;
 param stateContribution;
+param bigM;  # very large constant
 
 var newbies{MONTHS} >= 0;  # how many people to hire each month
 var experts{MONTHS} >= 0;  # how many experts available each month
+var doHire{MONTHS} binary;  # 1 iff we hire that month
 var getStateContribution binary;  # 1 iff we want to get state contribution
 
-minimize total_wages: sum{m in MONTHS}
-						newbies[m] * newbieWage + experts[m] * expertWage
-						- stateContribution * getStateContribution;
+# cost of people
+minimize total_wages:
+	- stateContribution * getStateContribution +  # state contribution
+	sum{m in MONTHS} (newbies[m] * newbieWage + experts[m] * expertWage);
 
 # number of experts available each month
-s.t. experts_month_1: experts["1"] = initialExperts;
-s.t. experts_month_2: experts["2"] = experts["1"] + newbies["1"];
-s.t. experts_month_3: experts["3"] = experts["2"] + newbies["2"];
-s.t. experts_month_4: experts["4"] = experts["3"] + newbies["3"];
-s.t. experts_month_5: experts["5"] = experts["4"] + newbies["4"];
+s.t. initial_experts: experts[1] = initialExperts;
+s.t. max_experts{m in 2..totalMonths}: experts[m] =
+	experts[m - 1] + newbies[m - 1];  # previous experts + old newbies
+
+# number of newbies I can hire each month
+s.t. max_newbies{m in MONTHS}: newbies[m] <= experts[m];
+
+# productivity each month
+s.t. productivity{m in MONTHS}:
+	newbies[m] * newbieProductivity +  # newbie
+	newbies[m] * expertHelperProductivity +  # experts helpers
+	(experts[m] - newbies[m]) * expertProductivity  # experts
+	>= minProductivity[m];
+
+# state contribution
+s.t. newbies[1] + newbies[2] >= minToGetReduction * getStateContribution;
+
+# can hire just one month in the last 3
+s.t. hireLastThree: sum{m in M - 2 .. M} doHire{m} <= 1;
+s.t. hiring{m in M - 2 .. M}: newbies[m] <= bigM * doHire;
