@@ -101,6 +101,7 @@ total_gain = 34
 | [Scheduling just-in-time](models/scheduling-jit) | `min-abs` | `start_1 = 26, start_2 = 31, start_3 = 38, start_4 = 45, start_5 = 52` | `4500` |
 | [Localizzazione con costi fissi](models/gdo/gdo.mod) | `logico` | `dnf` | `dnf` |
 | [Portfolio optimization](models/portfolio) | `logico` | `A = 22727.3, C = 70454.5, E = 6818.18` | `39538.6` |
+| [Assunzione multiperiodale di personale](models/assuzione-multiperiodale-personale) | `logico` | `...` | `...` |
 
 
 ## Help, something is wrong
