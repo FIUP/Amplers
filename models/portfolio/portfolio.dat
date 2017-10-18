@@ -12,4 +12,3 @@ param minAForE := 10000;
 param maxTime := 5;
 param maxRisk := 1.5;
 param budget := 100000;
-param bigM := 1000000;

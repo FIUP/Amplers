@@ -10,13 +10,11 @@ param moodys_rating{FUNDS};
 param time{FUNDS};
 param profit{FUNDS};
 param tax{FUNDS};
-
 param minPublicFunds;
 param minAForE;
 param maxTime;
 param maxRisk;
 param budget;
-param bigM;  # very large constant
 
 var x{FUNDS} >= 0;  # how much to invest in each fund
 var y{FUNDS} binary;  # 1 iff invest in fund
@@ -25,15 +23,13 @@ maximize total_profit: sum{f in FUNDS} x[f] * profit[f] * (1 - tax[f]);
 
 s.t. available_money: sum{f in FUNDS} x[f] <= budget;
 s.t. average_risk: sum{f in FUNDS} x[f] * moodys_rating[f] <= maxRisk * sum{f in FUNDS} x[f];
-s.t. average_time: sum{f in FUNDS} x[f] * time[f] <= maxRisk * sum{f in FUNDS} x[f];
+s.t. average_time: sum{f in FUNDS} x[f] * time[f] <= maxTime * sum{f in FUNDS} x[f];
 s.t. public_investment: sum{f in FUNDS} x[f] * is_state_public[f] >= budget * minPublicFunds;
 
-# activate logic constraint C - D
-s.t. logicCD_0: x["C"] <= bigM * y["C"];
-s.t. logicCD_1: x["D"] <= bigM * y["D"];
-s.t. logicCD_2: y["C"] + y["D"] <= 1;
+s.t. logicCD_0: x["C"] <= budget * y["C"];  # logic constraint C - D
+s.t. logicCD_1: x["D"] <= budget * y["D"];
+s.t. logicCD_2: y["C"] + y["D"] <= 1;  # C nand D
 
-# activate logic constraint A - E
-s.t. logicAE_0: x["A"] >= minAForE * y["A"];
-s.t. logicAE_1: x["E"] <= bigM * y["E"];
-s.t. logicAE_2: y["E"] <= y["A"];
+s.t. logicAE_0: x["A"] >= minAForE * y["A"];  # logic constraint A - E
+s.t. logicAE_1: x["E"] <= budget * y["E"];
+s.t. logicAE_2: y["E"] <= y["A"];  # E if A >= 10000
