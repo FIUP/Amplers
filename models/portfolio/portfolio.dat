@@ -1,6 +1,6 @@
 set FUNDS := "A", "B", "C", "D", "E";
 
-param: type moodys_rating years profit tax:=
+param: type moodys_rating time profit tax :=
 	"A"	"privato"	2		9	4.5		0
 	"B"	"pubblico"	3		15	5.4		0
 	"C" "stato"		1		4	5.1		0.3
@@ -8,6 +8,8 @@ param: type moodys_rating years profit tax:=
 	"E" "privato"	5		2	6.1		0;
 
 param minPublicFunds := 0.4;
+param minAForE := 10000;
 param maxTime := 5;
 param maxRisk := 1.5;
 param budget := 100000;
+param bigM := 1000000;
