@@ -1,19 +1,20 @@
 /**
- * Per l’assemblaggio di telecomandi, si hanno a disposizione 10 moduli display, 18 moduli di logica di controllo, 12 trasmettitori, 21 tastierini, 9 moduli di navigazione e 10 led.
- * I telecomandi sono di due tipi. Il tipo A richiede un display, un modulo
- * di navigazione, 2 tastierini, 2 moduli di logica, un trasmettitore e un led.
- * Il tipo B richiede 2 display, 3 tastierini, 2 moduli di logica e 3 trasmettitori.
- * Considerando che il tipo A permette un guadagno netto di 3 euro e il tipo B di 8 euro, determinare la produzione che massimizza il guadagno.
+ * Un cliente affida ad un’agenzia finanziaria 100 000 euro da impiegare in fondi di investimento. I fondi attualmente offerti dal mercato sono di cinque tipi, come riassunto in tabella.
+ * Si sa che i fondi pubblici e dello stato sono tassati del 30% alla fine del periodo. Il cliente chiede di riservare almeno il 40% del capitale a fondi pubblici e dello stato e vuole che la durata media dell’investimento non superi i 5 anni.
+ * Le regole del mercato impongono che l’investimento in C precluda la possibilità di investire in D, e viceversa. Inoltre, è possibile investire in E solo se si sono investiti almeno 10 000 euro in A. Infine, trasformando il Moody’s rating in una scala numerica (Aaa = 1, Aa = 2, A = 3, Baa = 4 e Ba = 5), il valore medio del rischio dell’investimento non deve superare 1,5. Si vuole massimizzare la rendita finale dell’investimento.
 */
 
-set MODELS;
-set RESOURCES;
-param gains{MODELS};
-param maxNumProducts{MODELS};
-param requirements{RESOURCES, MODELS};
-param available{RESOURCES};
+set FUNDS;
+param type{FUNDS};
+param moodys_rating{FUNDS};
+param years{FUNDS};
+param profit{FUNDS};
+param tax{FUNDS};
+param minPublicFunds;
+param maxTime;
+param maxRisk;
+param budget;
 
-var x{MODELS} integer >= 0;
+var x{FUNDS} >= 0;
 
-maximize total_gain: sum{m in MODELS} x[m] * gains[m];
-subject to max_resources{r in RESOURCES}: sum{m in MODELS} x[m] * requirements[r, m] <= available[r];
+maximize total_profit: sum{f in FUNDS} x[f] * profit[f] * (1 - tax[f]);

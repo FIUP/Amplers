@@ -1,22 +1,13 @@
-set MODELS := "A", "B";
-set RESOURCES := "displays", "logic", "transmission", "keyboards", "gps", "led";
+set FUNDS := "A", "B", "C", "D", "E";
 
-param: gains maxNumProducts :=
-	"A" 3	5
-	"B" 8	999;  # like infty
+param: type moodys_rating years profit tax:=
+	"A"	"privato"	2		9	4.5		0
+	"B"	"pubblico"	3		15	5.4		0
+	"C" "stato"		1		4	5.1		0.3
+	"D" "stato"		4		3	4.4		0.3
+	"E" "privato"	5		2	6.1		0;
 
-param: available :=
-	"displays"		10
-	"logic"			18
-	"transmission"	12
-	"keyboards"		21
-	"gps"			9
-	"led"			10;
-
-param requirements: "A" "B" :=
-	"displays"		1	2
-	"logic"			2	2
-	"transmission"	1	3
-	"keyboards"		2	3
-	"gps"			1	0
-	"led"			1	0;
+param minPublicFunds := 0.4;
+param maxTime := 5;
+param maxRisk := 1.5;
+param budget := 100000;
