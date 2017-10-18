@@ -100,6 +100,7 @@ total_gain = 34
 | [Produzione su più linee](models/linee-produzione) | `min-max` | `x_13 = 20, x_23 = 30, x_32 = 16, x_41 = 20` | `86` |
 | [Scheduling just-in-time](models/scheduling-jit) | `min-abs` | `start_1 = 26, start_2 = 31, start_3 = 38, start_4 = 45, start_5 = 52` | `4500` |
 | [Localizzazione con costi fissi](models/gdo/gdo.mod) | `logico` | `dnf` | `dnf` |
+| [Portfolio optimization](models/portfolio) | `logico` | `A = 22727.3, C = 70454.5, E = 6818.18` | `39538.6` |
 
 
 ## Help, something is wrong
