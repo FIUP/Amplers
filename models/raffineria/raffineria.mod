@@ -1,9 +1,13 @@
 /**
- * Per l’assemblaggio di telecomandi, si hanno a disposizione 10 moduli display, 18 moduli di logica di controllo, 12 trasmettitori, 21 tastierini, 9 moduli di navigazione e 10 led.
- * I telecomandi sono di due tipi. Il tipo A richiede un display, un modulo
- * di navigazione, 2 tastierini, 2 moduli di logica, un trasmettitore e un led.
- * Il tipo B richiede 2 display, 3 tastierini, 2 moduli di logica e 3 trasmettitori.
- * Considerando che il tipo A permette un guadagno netto di 3 euro e il tipo B di 8 euro, determinare la produzione che massimizza il guadagno.
+ * Una raffineria produce benzina verde e benzina super a partire da due tipi di greggio A e B, usando tre impianti.
+ * Il primo impianto può produrre 2 barili di verde e 3 di super a partire da 4 barili di greggio di tipo A e 3 barili di greggio di tipo B.
+ * Il secondo impianto può produrre 4 barili di verde e 2 di super a partire da 3 barili di greggio di tipo A e 4 barili di greggio di tipo B.
+ * Il terzo impianto può produrre 2 barili di verde e 2 di super a partire da 3 barili di greggio di tipo A e 3 barili di greggio di tipo B.
+ * Gli impianti lavorano sempre con le proporzioni specificate.
+ * La benzina verde viene venduta a 120 euro al barile, la super a 150 euro al barile.
+ * Sono disponibili, per questo mese, 5000 barili di greggio di tipo A e 6000 di tipo B.
+ * Per esigenze legate ad altre lavorazioni, almeno uno dei tre impianti deve produrre al massimo 1000 barili.
+ * Determinare la produzione che massimizza il profitto mensile.
 */
 
 set MODELS;
