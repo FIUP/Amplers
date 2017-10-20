@@ -91,7 +91,7 @@ total_gain = 34
 | [Telecomandi](models/telecomandi) | `mix-ottimo di produzione` | `x_A = 6, x_B = 2` | `34` |
 | [Produzione forza lavoro](models/prod-forza-lavoro/model.mod) | `mix-ottimo di produzione` | `x_1 = 430, x_2 = 200, x_3 = 508` | `42300` |
 | [Produzione capacità eccedente](models/prod-cap-eccedente/model.mod) | `mix-ottimo di produzione` | `factory_1 = 500, factory_2 = 600, factory_3 = 300` | `14900` |
-| [Raffineria](models/raffineria) | `mix-ottimo di produzione` | `...` | `...` |
+| [Raffineria](models/raffineria) | `mix-ottimo di produzione` | `1 super = 857.143, 1 verde = 571.429, 2 super = 2571.43, 2 verde = 5142.86` | `1200000` |
 | [Dieta](models/dieta/model.mod) | `copertura di costo minimo` | `x_verdura = 5, x_carne = 0, x_frutta = 0` | `20` |
 | [Indagine di mercato](models/indagine-mercato/model.mod) | `copertura di costo minimo` | `x_mattino = 1, x_sera = 666` | `1066.7` |
 | [Turni in ospedale](models/turni-ospedale/) | `copertura di costo minimo` | `fri = 3, mon = 4, sat = 4, sun = 3, thu = 4, tue = 3, wed = 3` | `24` |
