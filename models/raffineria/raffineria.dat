@@ -1,0 +1,24 @@
+set FUELS := "verde" "super";
+set OILS := "A" "B";
+set FACTORIES := 1 2 3;
+
+param productions: 	"verde" "super" :=
+				1	2		3
+				2	4		2
+				3	2		2;
+
+param resources: 	"A" "B" :=
+				1	4	3
+				2	3	4
+				3	3	3;
+
+param: price :=
+	"verde"		120
+	"super"		150;
+
+param: max_resources :=
+	"A"		5000
+	"B"		6000;
+
+param max_production_one := 1000;
+param veryLargeConstant := 10000000;
