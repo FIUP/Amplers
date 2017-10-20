@@ -10,14 +10,14 @@
  * Determinare la produzione che massimizza il profitto mensile.
 */
 
-set MODELS;
-set RESOURCES;
-param gains{MODELS};
-param maxNumProducts{MODELS};
-param requirements{RESOURCES, MODELS};
-param available{RESOURCES};
+set FUELS;
+set OILS;
+set FACTORIES;
 
-var x{MODELS} integer >= 0;
+param productions{FACTORIES, FUELS};
+param resources{FACTORIES, OILS};
+param price{FUELS};
+param max_resources{OILS};
+param min_production;
 
-maximize total_gain: sum{m in MODELS} x[m] * gains[m];
-subject to max_resources{r in RESOURCES}: sum{m in MODELS} x[m] * requirements[r, m] <= available[r];
+var x{FACTORIES, OILS} integer >= 0;
