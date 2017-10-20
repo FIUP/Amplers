@@ -18,6 +18,19 @@ param productions{FACTORIES, FUELS};
 param resources{FACTORIES, OILS};
 param price{FUELS};
 param max_resources{OILS};
-param min_production;
+param max_production_one;
+param gain{f in FACTORIES} =
+	sum{u in FUELS} productions[f, u] * price[u];  # $ I get when selling fuels
+param veryLargeConstant;
 
-var x{FACTORIES, OILS} integer >= 0;
+var x{FACTORIES} >= 0;  # amount of oil I use in each factory
+var y{FACTORIES} binary;  # logic var to make factory produce <= 1000
+
+maximize total_gain: sum{f in FACTORIES} x[f] * gain[f];
+
+s.t. resources_available{o in OILS}: sum{f in FACTORIES}
+	x[f] * resources[f, o] <= max_resources[o];
+
+s.t. at_least_one: sum{f in FACTORIES} y[f] <= 2;  # logic constraint
+s.t. max_production{f in FACTORIES}:
+	sum{u in FUELS} productions[f, u] <= max_production_one + veryLargeConstant * y[f];

@@ -2,10 +2,6 @@ set FUELS := "verde" "super";
 set OILS := "A" "B";
 set FACTORIES := 1 2 3;
 
-param: gains maxNumProducts :=
-	"A" 3	5
-	"B" 8	999;  # like infty
-
 param productions: 	"verde" "super" :=
 				1	2		3
 				2	4		2
@@ -24,4 +20,5 @@ param: max_resources :=
 	"A"		5000
 	"B"		6000;
 
-param min_production := 1000;
+param max_production_one := 1000;
+param veryLargeConstant := 10000000;
