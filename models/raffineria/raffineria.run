@@ -1,0 +1,9 @@
+reset;  # remove cached vars
+
+model raffineria.mod;  # set model and data
+data raffineria.dat;
+
+option solver cplex;  # select solver
+solve;  # solve
+
+display x, total_gain;  # display solution

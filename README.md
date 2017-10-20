@@ -102,6 +102,7 @@ total_gain = 34
 | [Localizzazione con costi fissi](models/gdo/gdo.mod) | `logico` | `dnf` | `dnf` |
 | [Portfolio optimization](models/portfolio) | `logico` | `A = 22727.3, C = 70454.5, E = 6818.18` | `39538.6` |
 | [Assunzione multiperiodale di personale](models/assuzione-multiperiodale-personale) | `logico` | `1 = 14, 2 = 13` | `198500` |
+| [Raffineria](models/raffineria) | `logico` | `...` | `...` |
 
 
 ## Help, something is wrong
