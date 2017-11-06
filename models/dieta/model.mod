@@ -5,13 +5,14 @@
 var x_verdura >= 0;  # qty to model
 var x_carne >= 0;
 var x_frutta >= 0;
+var x_pesce >= 0;
 
 # model
 
-minimize   cost: 4 * x_verdura + 10 * x_carne + 7 * x_frutta;
+minimize   cost: 4 * x_verdura + 10 * x_carne + 7 * x_frutta + 3 * x_pesce;
 
-subject to proteine: 5 * x_verdura + 15 * x_carne + 4 * x_frutta >= 20;
-subject to ferro: 6 * x_verdura + 10 * x_carne + 5 * x_frutta >= 30;
-subject to calcio: 5 * x_verdura + 3 * x_carne + 12 * x_frutta >= 10;
+subject to proteine: 5 * x_verdura + 15 * x_carne + 4 * x_frutta + 10 * x_pesce >= 20;
+subject to ferro: 6 * x_verdura + 10 * x_carne + 5 * x_frutta + 15 * x_pesce >= 30;
+subject to calcio: 5 * x_verdura + 3 * x_carne + 12 * x_frutta + 2 * x_pesce >= 10;
 
 option solver cplex;  # select which solver to use
