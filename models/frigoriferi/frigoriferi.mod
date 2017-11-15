@@ -13,6 +13,7 @@ set MAGAZZINI;  # warehouses
 param produzione{STABILIMENTI} >= 0;  # define
 param richiesta{MAGAZZINI} >= 0;
 param costo{STABILIMENTI, MAGAZZINI} >= 0;
+param maxCostoPerRotta = 5;  # TODO define in data
 
 # declare vars
 var x{STABILIMENTI, MAGAZZINI} >= 0;  # qty of refrigerators to move
